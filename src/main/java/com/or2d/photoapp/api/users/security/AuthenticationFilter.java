@@ -76,6 +76,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 				.signWith(SignatureAlgorithm.HS512, environment.getProperty("token.secret"))
 				.compact();
 		
+		System.out.println("TOKEN SECRET -> " + environment.getProperty("token.secret"));
+		
 		response.addHeader("token", token);
 		response.addHeader("userId", userDetails.getUserId());
 	}
